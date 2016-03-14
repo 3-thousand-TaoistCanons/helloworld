@@ -1,0 +1,71 @@
+{
+	"name":"helloworld",
+	"version":"1.0",
+	"cname":"应用示例",
+	"icon":"si-puzzle",
+	"icontype":"si",
+	"intro":"团队猫应用开发演示",
+	"detail":"@readme.md",
+	"document":"@document.md",
+	"author":"北京云道天成科技有限公司",
+	"homepage":"http://tuanduimao.com",
+	"menu": { 
+		
+		"default/index": {
+			"name":"数据列表",
+			"controller":"form",
+			"action":"hello",
+			"permission":"boss,admin,manager,user"
+		},
+
+		"form/hello": {
+			"name":"创建表单",
+			"controller":"form",
+			"action":"hello",
+			"permission":"boss,admin,manager"
+		},
+		
+		"docs/dev": {
+			"name":"开发文档",
+			"controller":"docs",
+			"action":"dev",
+			"permission":"boss,admin,user,manager"
+		},
+
+		"docs/ui": {
+			"name":"界面文档",
+			"controller":"docs",
+			"action":"ui",
+			"permission":"boss,admin,user,manager"
+		},
+
+		"docs/api": {
+			"name":"API文档",
+			"controller":"docs",
+			"action":"api",
+			"permission":"boss,admin,user,manager"
+		},
+
+		"docs/service": {
+			"name":"服务文档",
+			"controller":"docs",
+			"action":"service",
+			"permission":"boss,admin,user,manager"
+		}
+	},
+	"dependencies": {},
+	"injections": {},
+	"api": [
+		"/team/get",
+		"/team/member/list"
+	],
+
+	"register_api": {
+	}
+
+}
+
+
+
+
+
