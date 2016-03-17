@@ -12,6 +12,7 @@ ini_set('date.timezone','Asia/Shanghai');
 define('APP_ROOT', __DIR__);
 
 
+
 require_once('loader/Loader.php');
 require_once('lib/Excp.php');
 require_once('lib/Utils.php');
@@ -53,7 +54,16 @@ $request = json_decode($json, true);
 
 
 // 调用方法
+$type = (isset($headers['CONTENT_TYPE'])) ? $headers['CONTENT_TYPE'] : 'text';
+
 try{
+
+	if ($type == "application/api") {  // API 直接返回
+
+		echo \Tuanduimao\Loader\Auto::Run( $headers, $request );
+		exit;
+	}
+
 	$resp = \Tuanduimao\Loader\Auto::Run( $headers, $request );
 	echo json_encode($resp);
 

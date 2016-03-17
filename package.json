@@ -61,6 +61,19 @@
 	],
 
 	"register_api": {
+		"/world/get": {
+			"name":"读取示例",
+			"controller":"worldapi",
+			"action":"get",
+			"public":true
+		},
+
+		"/world/list": {
+			"name":"读取列表示例",
+			"controller":"worldapi",
+			"action":"find",
+			"public":false
+		}
 	}
 
 }

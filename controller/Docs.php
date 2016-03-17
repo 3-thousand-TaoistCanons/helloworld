@@ -2,14 +2,37 @@
 require_once('loader/Controller.php');
 require_once('loader/App.php');
 require_once('lib/Utils.php');
+require_once('lib/Tuan.php');
 
 use \Tuanduimao\Loader\App as App;
 use \Tuanduimao\Utils as Utils;
+use \Tuanduimao\Tuan as Tuan;
+use \Tuanduimao\Excp as Excp;
+use \Tuanduimao\Conf as Conf;
 
 
 class DocsController extends \Tuanduimao\Loader\Controller {
 	
 	function __construct() {
+	}
+
+	function api() {
+
+		$tuan = new Tuan;
+		$token = $tuan->getAccessToken();
+		
+		echo "<pre>";
+		echo $token . "\n";
+		echo Conf::G('general/appid');
+		echo "</pre>";
+
+		return [
+			'crumb' => [
+                "应用示例" => APP::R('docs','api'),
+                "API文档" => ""
+            ]
+        ];
+
 	}
 
 	function ui() {
