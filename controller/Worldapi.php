@@ -18,6 +18,10 @@ class WorldapiController extends \Tuanduimao\Loader\Controller {
 
 	function get(){
 
-		echo json_encode(['query'=>$this->query,  'data'=>$this->data, 'user'=>$this->user]);
+		echo json_encode(['name'=>'get','query'=>$this->query,  'data'=>$this->data, 'user'=>$this->user]);
+	}
+
+	function find(){
+		echo json_encode(['name'=>'find(list)','query'=>$this->query,  'data'=>$this->data, 'user'=>$this->user]);	
 	}
 }
