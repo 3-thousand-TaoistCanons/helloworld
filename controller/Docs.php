@@ -19,11 +19,13 @@ class DocsController extends \Tuanduimao\Loader\Controller {
 	function api() {
 
 		$tuan = new Tuan;
-		$token = $tuan->getAccessToken();
+		// $token = $tuan->getAccessToken();
+		$resp = $tuan->call('/apps/helloworld/world/get',['q1'=>'q1v'],['d1'=>'d1v']);
 		
 		echo "<pre>";
-		echo $token . "\n";
-		echo Conf::G('general/appid');
+		// echo $token . "\n";
+		// echo Conf::G('general/appid') . "\n";
+		print_r($resp);
 		echo "</pre>";
 
 		return [
