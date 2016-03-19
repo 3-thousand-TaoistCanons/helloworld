@@ -57,9 +57,7 @@ $request = json_decode($json, true);
 $type = (isset($headers['CONTENT_TYPE'])) ? $headers['CONTENT_TYPE'] : 'text';
 
 try{
-
-	if ($type == "application/api") {  // API 直接返回
-
+	if (in_array($type,["application/api","application/noframe","application/portal"])) {  // API/NOFRAME/PORTAL 直接返回
 		echo \Tuanduimao\Loader\Auto::Run( $headers, $request );
 		exit;
 	}
