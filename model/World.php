@@ -29,11 +29,15 @@ class WorldModel extends Tab {
 
 	/**
 	 * 测试数据表模块
-	 * @param integer $company_id [description]
+	 * @param array $param [description]
 	 */
-	function __construct( $company_id = 0 ) {
+	function __construct( $param=[] ) {
 
-		$name = "com_{$company_id}";
+		if ( !isset($param['_company_id'])) {
+			$param['_company_id'] = 0;
+		}
+
+		$name = "com_{$param['_company_id']}";
 		parent::__construct('world', $name);
 	}
 
