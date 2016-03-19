@@ -1,0 +1,26 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th class="text-center" style="width: 50px;">#</th>
+            <th>动作</th>
+            <th class="hidden-xs" style="width: 15%;">日期</th>
+            <th class="text-center" style="width: 100px;">用户</th>
+        </tr>
+    </thead>
+    <tbody>
+
+		<?php foreach ($logs as $log) : ?>
+        <tr>
+            <td class="text-center"><?=$log['id']?></td>
+            <td><?=$log['action']?></td>
+            <td class="hidden-xs">
+                <?=$log['at']?>
+            </td>
+            <td class="text-center">
+               <?=$log['name']?>
+            </td>
+        </tr>
+    	<?php endforeach; ?>
+
+    </tbody>
+</table>

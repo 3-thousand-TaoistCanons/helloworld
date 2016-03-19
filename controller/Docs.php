@@ -16,6 +16,15 @@ class DocsController extends \Tuanduimao\Loader\Controller {
 	function __construct() {
 	}
 
+	function service() {
+		echo "service";
+	}
+
+
+	function dev() {
+		echo "dev";
+	}
+
 	function api() {
 
 		$tuan = new Tuan;

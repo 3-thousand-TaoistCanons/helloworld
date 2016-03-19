@@ -1,0 +1,155 @@
+<?php use \Tuanduimao\Loader\App as App; ?>
+<!-- Page Content -->
+<div class="content">
+    <div class="block">
+        <div class="block-content tab-content">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 50px;">#</th>
+                        <th>姓名</th>
+                        <th>昵称</th>
+                        <th class="hidden-xs" style="width: 160px;">创建时间</th>
+                        <th class="text-center" style="width: 160px;">更新时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+            		<?php 
+                    if (is_array($worlds) ) :
+                    foreach ($worlds as $wd) : ?>
+                    <tr>
+                        <td class="text-center"><?=$wd['_id']?></td>
+                        <td><?=$wd['name']?></td>
+                        <td class="hidden-xs">
+                            <?=$wd['nick']?>
+                        </td>
+                        <td class="text-center">
+                           <?=$wd['_create_at']?>
+                        </td>
+
+                        <td class="text-center">
+                           <?=$wd['_update_at']?>
+                        </td>
+                    </tr>
+                	<?php 
+                    endforeach;
+                    endif; ?>
+                </tbody>
+                <tfoot>
+                    <tr><td colspan="5" >
+                        <span class="text-primary pull-right  push-20-t"> 共<?=$total?>条 </span>
+                        <button 
+                            class="btn btn-primary btn-small push-20-t"
+                            data-toggle="modal" data-target="#modal-delete"
+                            data-backdrop="static"
+                        >清空数据</button>
+                    </td></tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- 删除用户确认弹窗 -->
+<div class="modal fade" id="modal-delete" tabindex="-1" 
+     role="dialog" aria-hidden="true" 
+     data-action="<?=App::NR('data','hellodelete')?>"
+     data-goback="<?=App::R('form','datalist')?>"
+    >
+    <div class="modal-dialog modal-dialog-top">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent remove-margin-b">
+                <div class="block-header bg-primary">
+                    <ul class="block-options">
+                        <li> <button data-dismiss="modal" type="button"><i class="si si-close"></i></button> </li>
+                    </ul>
+                    <h3 class="block-title">确认清空数据吗？</h3>
+                </div>
+                <div class="block-content">
+                    <p>请确认删除清空数据，此操作不可恢复，请谨慎操作!</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">取消操作</button>
+                <button class="btn btn-sm btn-danger DeleteConfirm" type="button"><i class="fa fa-check"></i> 确认删除</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END 删除用户确认弹窗 -->
+
+<script type="text/javascript">
+
+function DataDelete() {
+    var buttons = $('button', '#modal-delete');
+        buttons.attr('disabled','disabled');
+        buttons.addClass('disabled');
+
+    var content = $('.block-content', '#modal-delete');
+    var content_text = content.html();
+        content.html('<p> <i class="fa fa-refresh fa-spin"></i> 正在删除请稍后... </p>');
+
+    var action = $('#modal-delete').attr('data-action');
+    var goback = $('#modal-delete').attr('data-goback');
+
+    $.post(action, {}, function(data, textStatus, xhr) {
+      
+
+        code = data['code'] || 0;
+        extra = data['extra'] || [];
+
+        if ( typeof extra == 'object' && isNaN(extra.length) ) {
+            extra = [extra];
+        }
+
+        if ( parseInt(code) == 302 ) {
+            window.location.reload(true);
+            return;
+        }
+
+        if ( typeof data['result'] == 'boolean' && typeof data['content'] == 'string' ) {
+            
+            code = -1;
+            if (  data['result'] === false ) {
+                data['message'] = data['content'];
+            }
+        }
+
+
+        if ( code != 0 ) {
+            message = data['message'] || '出错啦';
+            content.html('<p class="text-danger"> <i class="fa fa-times"></i> 删除失败! '+message+' </p>');
+            window.setTimeout(function(){
+                content.html(content_text);
+            },2000);
+
+            $(buttons).removeAttr('disabled');
+            $(buttons).removeClass('disabled');
+            return;
+        }
+
+        // 全局通知
+        content.html('<p class="text-success"> <i class="fa fa-check"></i> 删除成功! 即将返回<i class="fa fa-refresh fa-spin"></i> </p>');
+        window.setTimeout(function(){
+            window.location = goback;
+        },1000);
+
+    }, 'json')
+
+    .error( function(xhr, status, statusText ){
+        $(buttons).removeAttr('disabled');
+        $(buttons).removeClass('disabled');
+        content.html('<p class="text-danger"> <i class="fa fa-times"></i> 删除失败! '+statusText+' </p>');
+        window.setTimeout(function(){
+            content.html(content_text);
+        },2000);
+        return;
+    });
+}
+
+
+$('.DeleteConfirm').click(function(event) {
+    DataDelete();
+});
+</script>
