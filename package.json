@@ -73,8 +73,30 @@
 			"action":"find",
 			"public":false
 		}
-	}
+	},
 
+	"setup": {
+
+		"install": {
+			"controller":"setup",
+			"action":"install"
+		},
+
+		"upgrade": {
+			"controller":"setup",
+			"action":"upgrade"
+		},
+
+		"uninstall":{
+			"controller":"setup",
+			"action":"upgrade"
+		},
+
+		"repair": {
+			"controller":"setup",
+			"action":"repair"
+		}
+	}
 }
 
 
