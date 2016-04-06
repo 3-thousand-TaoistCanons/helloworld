@@ -22,7 +22,12 @@ class DocsController extends \Tuanduimao\Loader\Controller {
 
 
 	function dev() {
-		echo "dev";
+		echo "<pre>";
+		echo "dev". "\n";
+		echo "SESSION_ID: " . session_id() . "\n";
+		$_SESSION["user/session/id"] = "HELLO";
+		print_r($_SESSION);
+
 	}
 
 	function api() {
@@ -30,8 +35,10 @@ class DocsController extends \Tuanduimao\Loader\Controller {
 		$tuan = new Tuan;
 		// $token = $tuan->getAccessToken();
 		$resp = $tuan->call('/apps/helloworld/world/get',['q1'=>'q1v'],['d1'=>'d1v']);
-		
 		echo "<pre>";
+		echo "SESSION_ID: " . session_id() . "\n";
+		print_r($_SESSION);
+
 		// echo $token . "\n";
 		// echo Conf::G('general/appid') . "\n";
 		print_r($resp);

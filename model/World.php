@@ -51,13 +51,37 @@ class WorldModel extends Tab {
 		// 数据结构
 		try {
 
-			$this->putColumn('name', $this->type('BaseString', ['screen_name'=>'部门名称','required'=>1]) );
-			$this->putColumn('nick', $this->type('BaseString', ['screen_name'=>'部门名称']) );
+			$this->putColumn('wordid', $this->type('BaseString', ['screen_name'=>'世界ID','required'=>1, 'unique'=>1]) );
+			$this->putColumn('name', $this->type('BaseString', ['screen_name'=>'世界名称','required'=>1]) );
+			$this->putColumn('nick', $this->type('BaseString', ['screen_name'=>'世界昵称']) );
+			$this->putColumn('desp', $this->type('BaseString', ['screen_name'=>'世界简介']) );
 
 		} catch( Exception $e ) {
 			Excp::elog($e);
 			throw $e;
 		}
+	}
+
+	/**
+	 * 生成一个唯一的ID
+	 * @return [type] [description]
+	 */
+	function genWorldid() {
+		return (string) $this->nextid();
+	}
+
+
+
+	/**
+	 * 重载数据入库逻辑 （自动创建 userid)
+	 * @param  [type] $data [description]
+	 * @return [type]       [description]
+	 */
+	public function create( $data ) {
+		if( !isset($data['wordid']) && !isset($data['_id']) ) {
+			$data['wordid'] = $this->genWorldid();
+		}
+		return parent::create( $data );
 	}
 
 }
