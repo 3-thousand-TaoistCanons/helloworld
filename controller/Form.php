@@ -57,6 +57,9 @@ class FormController extends \Tuanduimao\Loader\Controller {
         ];
 	}
 
+	function hellorun() {
+		echo "<p>RUN</p>";
+	}
 
 
 	function hellolist() {

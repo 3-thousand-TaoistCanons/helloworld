@@ -1,5 +1,4 @@
 <?php use \Tuanduimao\Loader\App as App; ?>
-
 <!-- Page Content -->
 <div class="content">
 
@@ -7,11 +6,15 @@
 
         <ul class="nav nav-tabs nav-tabs-alt" data-toggle="tabs">
             <li class="active">  <!-- 手机不显示 -->
-                <a id="tabs-link-hello" href="#tabs-hello">创建表单</a>
+                <a id="tabs-link-hello" href="#tabs-hello"> <i class="fa  fa-pencil "></i> 创建表单</a>
             </li>
             <li>
                 <a id="tabs-link-world" href="#tabs-world"  data-remote="<?=App::NR('form','hellolist')?>">操作记录</a>
             </li>
+            <li class="pull-right">
+                <a href="#tabs-setting" ><i class="si  si-settings "></i> <span class="push-5-l font-w300" > 发布 </span> </a>
+            </li>
+
         </ul>
 
         <!-- TAB内容开始 -->
@@ -24,15 +27,15 @@
                 </div>
                 <div class="row"  style="min-height:300px;" ></div>
             </div>
-
+ 
             <!-- 系统选项标签 表单 -->
             <div class="tab-pane active" id="tabs-hello">
-                <div class="block-content">
+                <div class="block-content ">
                     <form id="DeptUserForm" 
                           class="js-validation-CoreHelloForm form-horizontal" 
                           action="<?=App::NR('data','hellosave')?>" method="post" >
                           
-                        <div class="form-group">
+                        <div class="form-group ">
 
                             <div class="col-lg-6">
                                 <div class="form-material">
@@ -50,7 +53,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12  push-50-t ">
                                 <label for="headimgurl_path">上传地图</label>
                                 <div class="form-material">
                                     <div name="worldimg" class="file-uploader rounded rounded-4"
@@ -106,6 +109,10 @@
             </div>
             
             <div class="tab-pane" id="tabs-world" ></div>
+            <div class="tab-pane" id="tabs-setting" >
+                <?=App::NRUN('form','hellorun')?>
+            </div>
+            
         </div>
     </div>
 </div>
