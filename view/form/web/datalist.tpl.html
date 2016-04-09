@@ -2,13 +2,39 @@
 <!-- Page Content -->
 <div class="content">
     <div class="block">
+
+        <div class="block-content tab-content">
+         <!-- Image Zoom In -->
+        <div class="row items-push">
+            <?php  if (is_array($worlds) ) :
+                    foreach ($worlds as $wd) : ?>
+            <div class="col-lg-3 animated fadeIn">
+                <div class="img-container fx-img-zoom-in">
+                    <img class="img-responsive" src="<?=$wd['worldimg_url']?>"="">
+                    <div class="img-options">
+                        <div class="img-options-content">
+                            <h3 class="font-w400 text-white push-5"><?=$wd['name']?></h3>
+                            <h4 class="h6 font-w400 text-white-op push-15"> <?=$wd['_create_at']?></h4>
+                            <a class="btn btn-sm btn-default" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
+                            <a class="btn btn-sm btn-default" href="javascript:void(0)"><i class="fa fa-times"></i> Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; 
+             endif; ?>
+        </div>
+        <!-- END Image Zoom In -->
+        </div>
+
+
         <div class="block-content tab-content">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th class="text-center" style="width: 50px;">#</th>
-                        <th>姓名</th>
-                        <th>昵称</th>
+                        <th>世界名称</th>
+                        <th>世界图片</th>
                         <th class="hidden-xs" style="width: 160px;">创建时间</th>
                         <th class="text-center" style="width: 160px;">更新时间</th>
                     </tr>
@@ -22,7 +48,7 @@
                         <td class="text-center"><?=$wd['_id']?></td>
                         <td><?=$wd['name']?></td>
                         <td class="hidden-xs">
-                            <?=$wd['nick']?>
+                            <?=$wd['worldimg_url']?>
                         </td>
                         <td class="text-center">
                            <?=$wd['_create_at']?>

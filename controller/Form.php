@@ -22,7 +22,9 @@ class FormController extends \Tuanduimao\Loader\Controller {
 
 	 	return [
 	 		'js' => [
-	 			"js/plugins/jquery-validation/jquery.validate.min.js"
+	 			"js/plugins/jquery-validation/jquery.validate.min.js",
+	 			"js/plugins/dropzonejs/dropzone.min.js",
+	 			"js/plugins/cropper/cropper.min.js"
 	 		],
 			'crumb' => [
                 "应用示例" => APP::R('form','hello'),
@@ -31,13 +33,20 @@ class FormController extends \Tuanduimao\Loader\Controller {
         ];
 	}
 
-
+	/**
+	 * [datalist description]
+	 * @return [type] [description]
+	 */
 	function datalist(){
 		
 		$world = App::M('World');
 		$resp = $world->select();
-		$data = ['worlds'=>$resp['data'], 'total'=>$resp['total']];
+		$worlds = $resp['data'];
+		foreach ($worlds as $idx => $wd ) {
+			$world->format($worlds[$idx]);
+		}
 
+		$data = ['worlds'=>$worlds, 'total'=>$resp['total']];
 
 	 	App::render($data, 'form/web','datalist');
 	 	return [
