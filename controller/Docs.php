@@ -17,7 +17,12 @@ class DocsController extends \Tuanduimao\Loader\Controller {
 	}
 
 	function service() {
-		echo "service";
+		$tuan = new Tuan;
+		$resp = $tuan->call('/apps/helloworld/world/list',['q1'=>'q1v'],['d1'=>'d1v']);
+		
+		echo "<pre>";
+		print_r($resp);
+		echo "</pre>";
 	}
 
 

@@ -19,7 +19,6 @@ class FormController extends \Tuanduimao\Loader\Controller {
 	function hello(){
 	 	$data = ['hello'=>'HELLOV', 'world'=>'WORLDV'];
 	 	App::render($data, 'form/web','hello');
-
 	 	return [
 	 		'js' => [
 	 			"js/plugins/jquery-validation/jquery.validate.min.js",
