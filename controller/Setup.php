@@ -25,7 +25,6 @@ class SetupController extends \Tuanduimao\Loader\Controller {
 	}
 
 	function repair() {
-		sleep(20);
 		echo json_encode('ok');		
 	}
 

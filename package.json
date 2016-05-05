@@ -24,12 +24,21 @@
 			"action":"hello",
 			"permission":"boss,admin,manager"
 		},
+
+		"designer/index": {
+			"name":"界面设计器",
+			"controller":"designer",
+			"action":"index",
+			"permission":"boss,admin,manager"
+		},
+
 		"helper/index": {
 			"name":"脚手架",
 			"controller":"helper",
 			"action":"index",
 			"permission":"boss,admin,manager"
 		},
+
 		"docs/dev": {
 			"name":"开发文档",
 			"controller":"docs",
