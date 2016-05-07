@@ -72,7 +72,7 @@ class DocsController extends \Tuanduimao\Loader\Controller {
 
 		echo "</pre>";
 
-		 return [
+		return [
         	'js' => [
                 'js/plugins/jquery-validation/jquery.validate.min.js',
         		'js/plugins/select2/select2.full.min.js',

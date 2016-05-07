@@ -95,6 +95,74 @@
                         </div>
 
                         <div class="form-group">
+                            <div class="col-lg-4">
+                                <label for="material-gridl2">附件上传测试</label>
+                                <div class="form-material">
+                                     <div id="testAttd" name="attachmentupload-01" class="file-uploader rounded rounded-4"
+                                          data-api = '<?=APP::NR('uploader','attachment')?>'
+                                          data-title='附件上传测试'
+                                          data-width="200px"
+                                          data-height="100px"
+                                          data-icon="fa fa-paperclip" 
+                                          data-type="attachment"
+                                          data-fileicons='{"pdf":"fa fa-file-pdf-o", "doc":"fa fa-file-word-o", "xls/doc":"fa fa-file-word-o"}'
+                                          data-placeholder="点击或拖入文件" 
+                                          data-allow-types=".pdf,.doc,.docx"
+                                          data-maxsize="400"
+                                          data-progress="yes"
+                                          data-draggable="yes"
+                                          data-src=""
+                                          ></div>
+                                 </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="material-gridl2">附件上传测试 (初始化)</label>
+                                <div class="form-material">
+                                    <div id="testAttd" name="attachmentupload-02" class="file-uploader rounded rounded-4"
+                                         data-api = '<?=APP::NR('uploader','attachment')?>'
+                                         data-title='附件上传测试'
+                                         data-width="200px"
+                                         data-height="100px"
+                                         data-icon="fa fa-paperclip" 
+                                         data-type="attachment"
+                                         data-fileicons='{"pdf":"fa fa-file-pdf-o", "doc":"fa fa-file-word-o", "xls/doc":"fa fa-file-word-o"}'
+                                         data-placeholder="点击或拖入文件" 
+                                         data-allow-types=".pdf,.doc"
+                                         data-maxsize="400"
+                                         data-progress="yes"
+                                         data-draggable="yes"
+                                         data-src="http://www.down.upload/1462623733.doc"
+                                         data-path="upload/1462623733.doc"
+                                         data-filetype="doc"
+                                         ></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <label for="material-gridl2">附件上传测试 (样式三)</label>
+                                <div class="form-material">
+                                    <div id="testAttd" name="attachmentupload-03" class="file-uploader rounded rounded-4"
+                                         data-api = '<?=APP::NR('uploader','attachment')?>'
+                                         data-title='附件上传测试'
+                                         data-width="200px"
+                                         data-height="100px"
+                                         data-icon="fa fa-paperclip" 
+                                         data-type="attachment"
+                                         data-fileicons='{"pdf":"fa fa-file-pdf-o", "doc":"fa fa-file-word-o", "xls/doc":"fa fa-file-word-o"}'
+                                         data-placeholder="点击或拖入文件" 
+                                         data-display-name="false"
+                                         data-allow-types=".pdf,.doc"
+                                         data-maxsize="400"
+                                         data-progress="yes"
+                                         data-draggable="yes"
+                                         data-src="http://www.down.upload/1462623733.doc"
+                                         data-path="upload/1462623733.doc"
+                                         data-filetype="doc"
+                                         ></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <div class="col-lg-12">
                                 <div class="form-material">
                                     <button class="btn btn-primary HelloWorldSubmit font-w300" type="submit" name="error" > 
