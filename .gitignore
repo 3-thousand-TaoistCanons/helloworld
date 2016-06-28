@@ -1,0 +1,6 @@
+view/hello/*
+view/hello/*/*
+view/worldform/*
+view/worldform/*/*
+controller/Hello.php
+controller/Defaults.php

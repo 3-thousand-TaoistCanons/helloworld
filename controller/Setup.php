@@ -31,5 +31,25 @@ class SetupController extends \Tuanduimao\Loader\Controller {
 	function uninstall() {
 		echo json_encode('ok');		
 	}
+
+	function menulist() {
+
+		echo '{
+			"docs/menutest4":{
+				"name":"动态添加",
+				"link":"{defaults,index,[test:61]}",
+				"target":"",
+				"order":102,
+				"permission":"boss,admin,user,manager"
+			},
+			"docs/menutest5":{
+				"name":"动态添加A",
+				"link":"{defaults,index,[test:62]}",
+				"target":"",
+				"order":2,
+				"permission":"boss,admin,user,manager"
+			}
+		}';
+	}
 	
 }

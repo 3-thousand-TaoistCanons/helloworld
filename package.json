@@ -65,8 +65,27 @@
 			"controller":"docs",
 			"action":"service",
 			"permission":"boss,admin,user,manager"
-		}
+		},
+
+		"docs/menutest":{
+			"name":"自定义链接",
+			"link":"{defaults,index,[link:1,custlink:1]}",
+			"index":true,
+			"order":1,
+			"permission":"boss,admin,user,manager"
+		},
+
+		"docs/menutest2":{
+			"name":"新窗链接",
+			"link":"{defaults,index,[link:2]}",
+			"target":"_blank",
+			"order":101,
+			"permission":"boss,admin,user,manager"
+		},
+
+		"_hook":"{setup,menulist,[link:3]}"
 	},
+
 	"dependencies": {},
 	"injections": {},
 	"api": [
