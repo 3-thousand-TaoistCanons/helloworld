@@ -22,6 +22,7 @@ class DocsController extends \Tuanduimao\Loader\Controller {
 
 
 	function dev() {
+
 		echo "<pre>";
 		echo "dev". "\n";
 		echo "SESSION_ID: " . session_id() . "\n";
